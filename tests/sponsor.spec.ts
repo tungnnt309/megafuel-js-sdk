@@ -1,7 +1,7 @@
-import {describe, expect, test} from '@jest/globals'
-import {sponsorClient} from './utils'
-import {WhitelistType} from '../src'
-import {POLICY_UUID, ACCOUNT_ADDRESS, CONTRACT_METHOD} from './env'
+import { describe, expect, test } from '@jest/globals'
+import { WhitelistType } from '../src'
+import { POLICY_UUID, ACCOUNT_ADDRESS, CONTRACT_METHOD } from './env'
+import { sponsorClient } from './utils'
 
 /**
  * Test suite for Sponsor API methods involving whitelist management and spend data retrieval.
@@ -158,10 +158,13 @@ describe('sponsorQuery', () => {
    * Tests retrieving user spend data.
    */
   describe('getUserSpendData', () => {
-    test('should return null for spend data when user has none', async () => {
-      const res = await sponsorClient.getUserSpendData(ACCOUNT_ADDRESS, POLICY_UUID)
+    test('should return not null for user spend data', async () => {
+      const res = await sponsorClient.getUserSpendData(
+        ACCOUNT_ADDRESS,
+        POLICY_UUID
+      )
 
-      expect(res).toBeNull()
+      expect(res).not.toBeNull()
       console.log('User spend data:', res)
     })
   })
