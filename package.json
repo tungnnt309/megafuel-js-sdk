@@ -1,6 +1,6 @@
 {
   "name": "megafuel-js-sdk",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "SDK for megafuel product",
   "repository": "https://github.com/node-real/megafuel-js-sdk",
   "license": "GPL-3.0-or-later",
@@ -33,10 +33,10 @@
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "typedoc": "^0.23.21",
-    "typescript": "^4.9.3"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "ethers": "^6.13.2"
+    "ethers": "^6.13.4"
   }
 }
