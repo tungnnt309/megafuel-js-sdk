@@ -16,7 +16,7 @@ class SponsorClient extends ethers_1.ethers.JsonRpcProvider {
     }
     // Static method to create a new standard PaymasterClient
     static new(url, network, options) {
-        return new SponsorClient(url, network, { batchMaxCount: 1 });
+        return new SponsorClient(url, network, Object.assign(Object.assign({}, options), { batchMaxCount: 1 }));
     }
     addToWhitelist(params) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {

@@ -57,7 +57,7 @@ export class SponsorClient extends ethers.JsonRpcProvider {
     network?: Networkish,
     options?: JsonRpcApiProviderOptions
   ): SponsorClient {
-    return new SponsorClient(url, network, {batchMaxCount: 1})
+    return new SponsorClient(url, network, {...options,batchMaxCount: 1})
   }
 
   async addToWhitelist(params: WhitelistArgs): Promise<boolean> {
