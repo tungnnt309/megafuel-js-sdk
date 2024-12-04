@@ -9,10 +9,14 @@ var WhitelistType;
     WhitelistType["ToAccountWhitelist"] = "ToAccountWhitelist";
     WhitelistType["ContractMethodSigWhitelist"] = "ContractMethodSigWhitelist";
     WhitelistType["BEP20ReceiverWhiteList"] = "BEP20ReceiverWhiteList";
-})(WhitelistType = exports.WhitelistType || (exports.WhitelistType = {}));
+})(WhitelistType || (exports.WhitelistType = WhitelistType = {}));
 class SponsorClient extends ethers_1.ethers.JsonRpcProvider {
     constructor(url, network, options) {
-        super(url, network, { batchMaxCount: 1 });
+        super(url, network, options);
+    }
+    // Static method to create a new standard PaymasterClient
+    static new(url, network, options) {
+        return new SponsorClient(url, network, { batchMaxCount: 1 });
     }
     addToWhitelist(params) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
