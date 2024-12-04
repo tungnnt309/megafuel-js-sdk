@@ -36,7 +36,8 @@ export type PolicySpendData = {
     ChainID: number;
 };
 export declare class SponsorClient extends ethers.JsonRpcProvider {
-    constructor(url?: string | FetchRequest, network?: Networkish, options?: JsonRpcApiProviderOptions);
+    private constructor();
+    static new(url?: string | FetchRequest, network?: Networkish, options?: JsonRpcApiProviderOptions): SponsorClient;
     addToWhitelist(params: WhitelistArgs): Promise<boolean>;
     removeFromWhitelist(params: WhitelistArgs): Promise<boolean>;
     emptyWhitelist(params: EmptyWhitelistArgs): Promise<boolean>;

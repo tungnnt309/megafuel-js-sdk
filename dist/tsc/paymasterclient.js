@@ -10,7 +10,7 @@ var GaslessTransactionStatus;
     GaslessTransactionStatus[GaslessTransactionStatus["Confirmed"] = 2] = "Confirmed";
     GaslessTransactionStatus[GaslessTransactionStatus["Failed"] = 3] = "Failed";
     GaslessTransactionStatus[GaslessTransactionStatus["Invalid"] = 4] = "Invalid";
-})(GaslessTransactionStatus = exports.GaslessTransactionStatus || (exports.GaslessTransactionStatus = {}));
+})(GaslessTransactionStatus || (exports.GaslessTransactionStatus = GaslessTransactionStatus = {}));
 class PaymasterClient extends ethers_1.ethers.JsonRpcProvider {
     constructor(url, network, options, privatePolicyUUID) {
         super(url, network, options);
@@ -45,8 +45,8 @@ class PaymasterClient extends ethers_1.ethers.JsonRpcProvider {
             return yield this.send('pm_isSponsorable', [tx]);
         });
     }
-    sendRawTransaction(signedTx, opts = {}) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+    sendRawTransaction(signedTx_1) {
+        return tslib_1.__awaiter(this, arguments, void 0, function* (signedTx, opts = {}) {
             const policyUUID = this.privatePolicyUUID;
             if (opts.UserAgent || this.privatePolicyUUID) {
                 const newConnection = this._getConnection();
