@@ -43,8 +43,21 @@ export type PolicySpendData = {
 }
 
 export class SponsorClient extends ethers.JsonRpcProvider {
-  constructor(url?: string | FetchRequest, network?: Networkish, options?: JsonRpcApiProviderOptions) {
-    super(url, network, {batchMaxCount: 1})
+  private constructor(
+    url?: string | FetchRequest,
+    network?: Networkish,
+    options?: JsonRpcApiProviderOptions,
+  ) {
+    super(url, network, options)
+  }
+
+  // Static method to create a new standard PaymasterClient
+  static new(
+    url?: string | FetchRequest,
+    network?: Networkish,
+    options?: JsonRpcApiProviderOptions
+  ): SponsorClient {
+    return new SponsorClient(url, network, {batchMaxCount: 1})
   }
 
   async addToWhitelist(params: WhitelistArgs): Promise<boolean> {
